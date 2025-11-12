@@ -1,0 +1,28 @@
+{
+  "investors": [
+    {
+      "id": "9e984a33-a464-43ac-a47a-3f2573d7ea90",
+      "name": "xxz",
+      "investment_amount": 1000,
+      "created_at": "2025-11-12T14:17:25.636548+08:00"
+    },
+    {
+      "id": "dfa8cea0-40ca-4a3e-bbdf-956e5e90a1ab",
+      "name": "wmm",
+      "investment_amount": 1.27,
+      "created_at": "2025-11-12T14:17:38.870372+08:00"
+    }
+  ],
+  "monthly_profits": [
+    {
+      "id": "23e5e364-0ae4-4386-a876-99d41b1e2d49",
+      "date": "2025-11-11T00:00:00Z",
+      "total_profit": 0.03,
+      "distributions": {
+        "9e984a33-a464-43ac-a47a-3f2573d7ea90": 0.02996194832562645,
+        "dfa8cea0-40ca-4a3e-bbdf-956e5e90a1ab": 0.0000380516743735456
+      },
+      "created_at": "2025-11-12T14:18:13.769789+08:00"
+    }
+  ]
+}

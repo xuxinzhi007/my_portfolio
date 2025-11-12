@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陪你玩 - 00后专属陪陪接单平台</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7EBB',
+                        secondary: '#9D65C9',
+                        light: '#F9F0FF',
+                        accent: '#FFD166',
+                        blue: '#87CEFA',
+                    },
+                    fontFamily: {
+                        pop: ['"Poppins"', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .gradient-bg {
+                background: linear-gradient(135deg, #FF7EBB 0%, #9D65C9 100%);
+            }
+            .card-glow {
+                box-shadow: 0 10px 30px rgba(255, 126, 187, 0.2);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(135deg, #FF7EBB 0%, #9D65C9 100%);
+            }
+            .btn-hover {
+                @apply transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
+            }
+        }
+    </style>
+    <!-- 引入Google字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-pop bg-light text-gray-800 overflow-x-hidden">
+<!-- 导航栏 -->
+<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-20">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
+                    <i class="fa fa-heart text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gradient">陪你玩</span>
+            </a>
+
+            <!-- 桌面端导航 -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="font-medium text-gray-700 hover:text-primary transition-colors">首页</a>
+                <a href="#category" class="font-medium text-gray-700 hover:text-primary transition-colors">陪伴分类</a>
+                <a href="#companion" class="font-medium text-gray-700 hover:text-primary transition-colors">优质陪陪</a>
+                <a href="#publish" class="font-medium text-gray-700 hover:text-primary transition-colors">发布需求</a>
+            </nav>
+
+            <!-- 登录/注册按钮 -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#login" class="px-5 py-2 rounded-full border border-primary text-primary font-medium btn-hover">登录</a>
+                <a href="#register" class="px-5 py-2 rounded-full gradient-bg text-white font-medium btn-hover">注册</a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-gray-700 text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 移动端导航菜单 -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-pink-100">
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+            <a href="#home" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+            <a href="#category" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">陪伴分类</a>
+            <a href="#companion" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">优质陪陪</a>
+            <a href="#publish" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">发布需求</a>
+            <div class="flex flex-col space-y-3 pt-3 border-t border-pink-100">
+                <a href="#login" class="text-center px-5 py-2 rounded-full border border-primary text-primary font-medium">登录</a>
+                <a href="#register" class="text-center px-5 py-2 rounded-full gradient-bg text-white font-medium">注册</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- 英雄区域 -->
+    <section id="home" class="pt-28 md:pt-40 pb-16 md:pb-24 relative overflow-hidden">
+        <!-- 装饰元素 -->
+        <div class="absolute top-20 right-0 w-60 h-60 bg-pink-100 rounded-full blur-3xl opacity-70"></div>
+        <div class="absolute bottom-10 left-10 w-40 h-40 bg-purple-100 rounded-full blur-3xl opacity-70"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-6">
+                        找个<span class="text-gradient">专属陪陪</span><br>
+                        告别孤单时光～
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        游戏开黑、聊天吐槽、学习监督、兴趣陪伴... 00后都在这找搭子，快速匹配，快乐翻倍！
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#companion" class="btn-hover px-8 py-3 rounded-full gradient-bg text-white font-medium text-center">
+                            <i class="fa fa-search mr-2"></i>找陪陪
+                        </a>
+                        <a href="#publish" class="btn-hover px-8 py-3 rounded-full bg-white border-2 border-primary text-primary font-medium text-center">
+                            <i class="fa fa-plus mr-2"></i>发需求
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center space-x-6">
+                        <div class="flex -space-x-4">
+                            <img src="https://picsum.photos/id/1001/50/50" alt="用户头像" class="w-12 h-12 rounded-full border-2 border-white">
+                            <img src="https://picsum.photos/id/1002/50/50" alt="用户头像" class="w-12 h-12 rounded-full border-2 border-white">
+                            <img src="https://picsum.photos/id/1003/50/50" alt="用户头像" class="w-12 h-12 rounded-full border-2 border-white">
+                            <img src="https://picsum.photos/id/1004/50/50" alt="用户头像" class="w-12 h-12 rounded-full border-2 border-white">
+                            <div class="w-12 h-12 rounded-full border-2 border-white bg-primary/10 flex items-center justify-center text-primary font-medium">
+                                99+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="ml-2 text-gray-700 font-medium">4.9/5</span>
+                            </div>
+                            <p class="text-sm text-gray-500">10w+00后都在玩</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative rounded-3xl overflow-hidden card-glow">
+                        <img src="https://picsum.photos/id/237/600/400" alt="陪陪平台展示" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold mb-2">实时匹配，秒连陪伴</h3>
+                                <p class="text-white/90">游戏、聊天、学习... 想陪就陪</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 悬浮卡片 -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 card-glow btn-hover">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
+                                <i class="fa fa-gamepad text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">游戏陪玩</p>
+                                <p class="text-gray-800 font-bold text-xl">2.3w+在线</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white rounded-2xl p-4 card-glow btn-hover">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa fa-comments text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">聊天陪伴</p>
+                                <p class="text-gray-800 font-bold text-xl">1.8w+在线</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 陪伴分类 -->
+    <section id="category" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">
+                    <span class="text-gradient">热门陪伴</span>分类
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">pick你喜欢的陪伴类型，快速匹配同好搭子</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- 分类卡片1 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mx-auto mb-4">
+                        <i class="fa fa-gamepad text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">游戏陪玩</h3>
+                    <p class="text-sm text-gray-500">王者/吃鸡/原神</p>
+                </div>
+
+                <!-- 分类卡片2 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-pink-100 flex items-center justify-center text-primary mx-auto mb-4">
+                        <i class="fa fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">聊天陪伴</h3>
+                    <p class="text-sm text-gray-500">吐槽/倾诉/唠嗑</p>
+                </div>
+
+                <!-- 分类卡片3 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-green-100 flex items-center justify-center text-green-500 mx-auto mb-4">
+                        <i class="fa fa-book text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">学习监督</h3>
+                    <p class="text-sm text-gray-500">考研/考公/作业</p>
+                </div>
+
+                <!-- 分类卡片4 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-yellow-100 flex items-center justify-center text-accent mx-auto mb-4">
+                        <i class="fa fa-music text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">兴趣陪伴</h3>
+                    <p class="text-sm text-gray-500">追剧/听歌/K歌</p>
+                </div>
+
+                <!-- 分类卡片5 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-purple-100 flex items-center justify-center text-secondary mx-auto mb-4">
+                        <i class="fa fa-cutlery text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">吃饭搭子</h3>
+                    <p class="text-sm text-gray-500">同城/外卖/探店</p>
+                </div>
+
+                <!-- 分类卡片6 -->
+                <div class="bg-light rounded-2xl p-6 text-center card-glow btn-hover">
+                    <div class="w-18 h-18 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-500 mx-auto mb-4">
+                        <i class="fa fa-plus-circle text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">自定义</h3>
+                    <p class="text-sm text-gray-500">其他陪伴需求</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 优质陪陪 -->
+    <section id="companion" class="py-16 md:py-24 bg-light">
+        <div class="container mx-auto px-4 sm:px
