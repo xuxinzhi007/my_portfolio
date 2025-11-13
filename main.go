@@ -9,6 +9,7 @@ import (
 
 	"my_portfolio/profit_calculator"
 	"my_portfolio/settings"
+	"my_portfolio/token_extractor"
 	"my_portfolio/weight_tracker"
 )
 
@@ -66,6 +67,10 @@ func main() {
 	settingsUI := settings.NewSettingsUI(myApp, myWindow)
 	settingsContent := settingsUI.MakeUI()
 
+	// 创建Token提取器UI
+	tokenExtractorUI := token_extractor.NewTokenExtractorUI(myWindow)
+	tokenExtractorContent := tokenExtractorUI.MakeUI()
+
 	// 2. 使用 TabContainer 来组织页面
 	tabs := container.NewAppTabs(
 		container.NewTabItemWithIcon("首页", theme.HomeIcon(), homeContent),
@@ -73,6 +78,7 @@ func main() {
 		container.NewTabItemWithIcon("文件去重", theme.FolderIcon(), tool2Content),
 		container.NewTabItemWithIcon("体重记录", theme.MediaRecordIcon(), weightTrackerContent),
 		container.NewTabItemWithIcon("收益计算", theme.ConfirmIcon(), profitCalculatorContent),
+		container.NewTabItemWithIcon("Token提取", theme.ComputerIcon(), tokenExtractorContent),
 		container.NewTabItemWithIcon("设置", theme.SettingsIcon(), settingsContent),
 	)
 

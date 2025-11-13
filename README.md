@@ -4,7 +4,7 @@
 在终端中执行以下命令，安装Fyne的打包命令行工具：
 go install fyne.io/fyne/v2/cmd/fyne@latest
 
-应用应用图标
+应用应用图标 (本地打包)
 fyne package -icon icon.png
 
 命令说明：
